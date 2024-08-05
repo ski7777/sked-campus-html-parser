@@ -71,7 +71,7 @@ func ParseHTMLURL(url string) (ttp *TimeTablePage, err error) {
 	}
 	defer func() { _ = res.Body.Close() }()
 	if res.StatusCode != 200 {
-		err = errors.New(fmt.Sprintf("status code error: %d %s", res.StatusCode, res.Status))
+		err = errors.New(fmt.Sprintf("failed fetching %s status code error: %d %s", url, res.StatusCode, res.Status))
 		return
 	}
 
